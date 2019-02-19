@@ -1,16 +1,22 @@
 import React from 'react';
-import Axios from 'axios'
 
 import SearchBar from './SearchBar'
-import APIKEY from '../api/youtube'
+import API from '../api/youtube'
 
 class App extends React.Component {
 
+  performSearch = (query) => {
+    API.get('/search', {
+      params: {
+        q: query
+      }
+    })
+  }
 
   render() {
     return (
       <div className="ui container">
-        <SearchBar/>
+        <SearchBar onFormSubmit={this.performSearch}/>
       </div>
     )
   }

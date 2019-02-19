@@ -1,3 +1,14 @@
+import axios from 'axios'
+const APIKEY = "AIzaSyCq0qbY-KPgOa72uArqbo8K9oaVEpuihw0"
 
-const APIKEY = "AIzaSyAhcd77WrxLMVLy7HILfUtefJ4dz6Cc1q4"
-export default APIKEY
+
+
+
+export default axios.create({
+  baseURL: "https://www.googleapis.com/youtube/v3",
+  params: {
+    part: 'snippet',
+    maxResults: 5,
+    key: APIKEY
+  }
+})
