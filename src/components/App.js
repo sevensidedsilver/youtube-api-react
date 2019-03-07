@@ -3,6 +3,7 @@ import React from 'react';
 import SearchBar from './SearchBar'
 import VideoList from './VideoList'
 import VideoDetail from './VideoDetail'
+import Lamp from './Lamp'
 
 import API from '../api/youtube'
 
@@ -36,14 +37,19 @@ class App extends React.Component {
   }
 
   render() {
+    const marginBottom = {
+
+    }
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.performSearch}/>
         <div className="ui grid">
           <div className="ui row">
-            <div className="eleven wide column">
-              <VideoDetail video={this.state.selectedVideo} />
+            <div className="eleven wide column"  style={marginBottom}>
+              <VideoDetail video={this.state.selectedVideo}/>
+              <Lamp />
             </div>
+
             <div className="five wide column">
               <VideoList onVideoSelect = {this.onVideoSelect} videos={this.state.videos}/>
             </div>
